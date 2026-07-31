@@ -16,26 +16,9 @@ export const SITE = {
   email: 'aleffjosuel321@gmail.com',
   githubUsername: 'AleffJosuel',
   githubUrl: 'https://github.com/AleffJosuel',
-  // TODO: adicionar link do LinkedIn, se desejar
-  linkedinUrl: '',
+  linkedinUrl: 'https://www.linkedin.com/in/aleffjosuel/',
+  resumeFile: '/Curriculo-Aleff-Josuel.pdf',
 }
 
-export const NAV_ITEMS = [
-  { label: 'Home', href: '/' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Projetos', href: '/projetos' },
-  { label: 'Contato', href: '/contato' },
-] as const
-
-// Stack exibida na home. Usa os mesmos identificadores de getTechStyle (lib/techIcons)
-// para herdar a cor por tecnologia.
-export const STACK = [
-  'React',
-  'TypeScript',
-  'JavaScript',
-  'Java',
-  'Spring Boot',
-  'PostgreSQL',
-  'Tailwind CSS',
-  'Supabase',
-] as const
+// Anchor sections of the one-page site, in nav order.
+export const SECTION_IDS = ['stack', 'projetos', 'trajetoria', 'sobre', 'contato'] as const
