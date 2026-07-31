@@ -56,8 +56,13 @@ export function About() {
           </div>
         </div>
 
-        <div className="grid h-[220px] place-items-center rounded-xl bg-surface text-xs text-muted sm:h-[360px]">
-          {t.portraitPlaceholder}
+        <div className="h-[360px] overflow-hidden rounded-xl bg-surface sm:h-[440px]">
+          <img
+            src="/perfil.png"
+            alt={SITE.name}
+            loading="lazy"
+            className="h-full w-full object-cover object-top"
+          />
         </div>
       </div>
     </section>
