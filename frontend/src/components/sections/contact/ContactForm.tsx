@@ -4,7 +4,7 @@ import { COPY } from '../../../lib/copy'
 import { FormField } from '../../ui/FormField'
 
 export function ContactForm() {
-  const { form, status, handleChange, handleSubmit } = useContactForm()
+  const { form, status, slow, handleChange, handleSubmit } = useContactForm()
   const [lang] = useLang()
   const t = COPY[lang].contact
 
@@ -37,6 +37,7 @@ export function ContactForm() {
         {status === 'submitting' ? t.sending : t.send}
       </button>
 
+      {status === 'submitting' && slow && <p className="text-sm text-muted">{t.warming}</p>}
       {status === 'success' && <p className="text-sm text-emerald-400">{t.sent}</p>}
       {status === 'error' && (
         <p className="text-sm text-red-400">

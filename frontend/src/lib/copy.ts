@@ -71,6 +71,7 @@ export const COPY = {
       message: 'Mensagem',
       send: 'Enviar mensagem',
       sending: 'Enviando...',
+      warming: 'O servidor gratuito pode levar até ~1 min para acordar na primeira mensagem. Aguarde...',
       sent: 'Mensagem enviada! Vou te responder em breve.',
     },
 
@@ -151,6 +152,7 @@ export const COPY = {
       message: 'Message',
       send: 'Send message',
       sending: 'Sending...',
+      warming: 'The free server can take up to ~1 min to wake up on the first message. Please wait...',
       sent: 'Message sent! I will get back to you soon.',
     },
 

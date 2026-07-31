@@ -22,23 +22,43 @@ export class ApiError extends Error {
 interface RequestOptions extends Omit<RequestInit, 'headers'> {
   adminToken?: string
   headers?: Record<string, string>
+  /** Aborts the request after this many ms so a stalled backend can't hang the UI forever. */
+  timeoutMs?: number
 }
+
+// Generous default: the free-tier backend can take ~40s to wake from sleep
+// (cold start), so the timeout must sit comfortably above that.
+const DEFAULT_TIMEOUT_MS = 90_000
 
 /**
  * Single fetch wrapper used by every api/*.ts module, so header handling
  * and error parsing exist in exactly one place.
  */
 export async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { adminToken, headers, ...rest } = options
+  const { adminToken, headers, timeoutMs = DEFAULT_TIMEOUT_MS, ...rest } = options
 
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...rest,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(adminToken ? { 'X-Admin-Token': adminToken } : {}),
-      ...headers,
-    },
-  })
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
+
+  let response: Response
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, {
+      ...rest,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...(adminToken ? { 'X-Admin-Token': adminToken } : {}),
+        ...headers,
+      },
+    })
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') {
+      throw new Error('A requisição demorou demais e foi cancelada. Tente novamente.')
+    }
+    throw error
+  } finally {
+    clearTimeout(timeoutId)
+  }
 
   if (!response.ok) {
     const body = (await response.json().catch(() => null)) as ApiErrorBody | null
