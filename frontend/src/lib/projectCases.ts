@@ -98,7 +98,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'TypeScriptFullstack',
     repoUrl: 'https://github.com/AleffJosuel/TypeScriptFullstack',
     tech: ['JavaScript', 'Express', 'HTML', 'CSS'],
-    image: '/cases/typescript.webp',
+    image: '/cases/typescript.svg',
     pt: {
       role: 'Node · Express',
       status: 'Em construção',
