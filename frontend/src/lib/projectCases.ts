@@ -13,6 +13,8 @@ export interface ProjectCase {
   title: string
   repoUrl: string
   tech: string[]
+  /** Optional illustrative image shown at the top of the case panel (served from public/). */
+  image?: string
   pt: LocalizedCase
   en: LocalizedCase
 }
@@ -61,6 +63,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'TaskManagerApi',
     repoUrl: 'https://github.com/AleffJosuel/TaskManagerApi',
     tech: ['Java', 'Spring Boot', 'JPA', 'PostgreSQL'],
+    image: '/cases/taskmanager.png',
     pt: {
       role: 'Back-end · Java',
       status: 'Em construção',

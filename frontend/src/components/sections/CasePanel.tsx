@@ -59,7 +59,16 @@ export function CasePanel({ caseId, onClose, onStep }: CasePanelProps) {
             </div>
 
             <div className="px-6 py-8 sm:px-8">
-              <div className="h-[180px] rounded-xl bg-surface sm:h-[230px]" />
+              <div className="h-[180px] overflow-hidden rounded-xl bg-surface sm:h-[230px]">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </div>
 
               <h3 className="mt-6 text-3xl leading-tight font-bold sm:text-[38px]">{project.title}</h3>
               <p className="mt-3 text-[13px] text-muted">
