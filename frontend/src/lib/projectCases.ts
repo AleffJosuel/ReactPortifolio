@@ -30,6 +30,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'ReactPortifolio',
     repoUrl: 'https://github.com/AleffJosuel/ReactPortifolio',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Java', 'Spring Boot', 'Supabase'],
+    image: '/cases/reactportfolio.jpg',
     pt: {
       role: 'Full stack · monorepo',
       status: 'No ar',
@@ -97,6 +98,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'TypeScriptFullstack',
     repoUrl: 'https://github.com/AleffJosuel/TypeScriptFullstack',
     tech: ['JavaScript', 'Express', 'HTML', 'CSS'],
+    image: '/cases/typescript.webp',
     pt: {
       role: 'Node · Express',
       status: 'Em construção',
@@ -130,6 +132,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'minha-primeira-api',
     repoUrl: 'https://github.com/AleffJosuel/minha-primeira-api',
     tech: ['JavaScript', 'Express'],
+    image: '/cases/primeira-api.jpg',
     pt: {
       role: 'Back-end · JavaScript',
       status: 'Estudo',
