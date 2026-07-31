@@ -30,7 +30,7 @@ export const PROJECT_CASES: ProjectCase[] = [
     title: 'ReactPortifolio',
     repoUrl: 'https://github.com/AleffJosuel/ReactPortifolio',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Java', 'Spring Boot', 'Supabase'],
-    image: '/cases/reactportfolio.jpg',
+    image: '/cases/reactportfolio.svg',
     pt: {
       role: 'Full stack · monorepo',
       status: 'No ar',
